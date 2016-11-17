@@ -1,0 +1,30 @@
+# Redirect server error pages to the static pages
+error_page 500 502 504  /500.html;
+location = /500.html {
+    root	/usr/local/apps/nginx/etc/conf.d;
+    internal;
+}
+
+error_page  404			/404.html;
+location = /404.html {
+    root	/usr/local/apps/nginx/etc/conf.d;
+    internal;
+}
+
+error_page  497			/497.html;
+location = /497.html {
+    root	/usr/local/apps/nginx/etc/conf.d;
+    internal;
+}
+
+error_page  555 /555.html;
+location = /555.html {
+    root	/usr/local/apps/nginx/etc/conf.d;
+    internal;
+}
+
+location @maintenance {
+    root	/usr/local/apps/nginx/etc/conf.d;
+    rewrite ^(.*)$ /noindex.html break;
+}
+
