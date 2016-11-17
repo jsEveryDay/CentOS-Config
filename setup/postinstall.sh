@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MINE=https://raw.githubusercontent.com/jsEveryDay/webuzo/master/root
+MINE=https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup
 
 read -p 'User: ' myUser
 read -p 'Pass: ' myPass
