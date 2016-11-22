@@ -44,10 +44,10 @@ if [ "$mynx" == "y" ]; then
 	wget http://nginx.org/download/nginx-1.10.2.tar.gz
 	tar -zxvf *.tar.gz
 	cd nginx-1.10.2
-	./configure --prefix=/usr/local/apps/nginx --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/var/log/error.log --http-log-path=/usr/local/apps/nginx/var/log/web.access.log --with-http_ssl_module
+	./configure --prefix=/usr/local/apps/nginx --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/logs/error.log --http-log-path=/usr/local/apps/nginx/logs/web.access.log --with-http_ssl_module
 	make
 	make install
-	wget https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/mynginx.tar.gz
+	wget $MINE/mynginx.tar.gz
 	tar -zxvpf mynginx.tar.gz -C /usr/local/apps
 	ln -s /usr/local/apps/nginx/sbin/nginx /usr/sbin/nginx
 	ln -s /usr/local/apps/nginx/bin/nginxctl /etc/rc.d/init.d/nginx
