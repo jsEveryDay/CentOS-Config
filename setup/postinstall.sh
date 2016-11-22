@@ -9,6 +9,7 @@ read -p 'Domain: ' myDomain
 sed -i '$ a alias mycron="env EDITOR=nano crontab -e"' $HOME/.bashrc
 sed -i '$ a alias tara="tar cvzf"' $HOME/.bashrc
 sed -i '$ a alias tarx="tar -zxvf"' $HOME/.bashrc
+sed -i '$ a alias mynginx="cd /usr/local/apps/nginx/etc"' $HOME/.bashrc
 sed -i '$ a alias myip="wget -qO- http://ipecho.net/plain ; echo"' $HOME/.bashrc
 
 ip=$(cat ip.php) 
