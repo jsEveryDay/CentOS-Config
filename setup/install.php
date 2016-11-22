@@ -108,7 +108,7 @@ else {
 
 
 	if (empty($chunks)) {
-        $chunks = array('apache', 'mysql', 'php55', 'perl', 'python2', 'pureftpd', 'bind', 'csf');
+        $chunks = array('mysql', 'php55', 'perl', 'python2', 'bind');
 	}
 
 	error_reporting( 4 );
@@ -265,7 +265,7 @@ else {
 
 	if (!in_array( 'none', $chunks )) {
 		include( $globals['path'] . '/enduser/apps.php' );
-		$globals['license'] = 'WEBUZO-14804-51914-29634-93390';
+		$globals['license'] = '';
 		foreach ($apps as $kt => $vt) {
 
 			if (in_array( $vt['softname'], $chunks )) {
