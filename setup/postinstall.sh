@@ -9,7 +9,7 @@ read -p 'Domain: ' myDomain
 sed -i '$ a alias mycron="env EDITOR=nano crontab -e"' $HOME/.bashrc
 sed -i '$ a alias tara="tar cvzf"' $HOME/.bashrc
 sed -i '$ a alias tarx="tar -zxvf"' $HOME/.bashrc
-sed -i '$ a alias mynginx="cd /usr/local/apps/nginx/etc"' $HOME/.bashrc
+sed -i '$ a alias mynginx="cd /usr/local/apps/nginx/etc/conf.d"' $HOME/.bashrc
 sed -i '$ a alias myip="wget -qO- http://ipecho.net/plain ; echo"' $HOME/.bashrc
 
 ip=$(cat ip.php) 
@@ -30,6 +30,34 @@ chmod 0755 autoinstall.php
 # Change Settings, stop email spam from webuzo, stop autoupdate etc
 #----------------------------------
 wget -O /usr/local/webuzo/enduser/universal.php $MINE/universal.php
+
+
+#----------------------------------
+# Nginx
+#----------------------------------
+cd /root
+read -p 'Install NGINX (y/n)?: ' mynx
+if [ "$mynx" == "y" ]; then 
+	yum install pcre-devel zlib-devel openssl-devel -y
+	mkdir nginx
+	cd nginx
+	wget http://nginx.org/download/nginx-1.10.2.tar.gz
+	tar -zxvf *.tar.gz
+	cd nginx-1.10.2
+	./configure --prefix=/usr/local/apps/nginx --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/var/log/error.log --http-log-path=/usr/local/apps/nginx/var/log/web.access.log --with-http_ssl_module
+	make
+	make install
+	wget https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/mynginx.tar.gz
+	tar -zxvpf mynginx.tar.gz -C /usr/local/apps
+	ln -s /usr/local/apps/nginx/sbin/nginx /usr/sbin/nginx
+	ln -s /usr/local/apps/nginx/bin/nginxctl /etc/rc.d/init.d/nginx
+	sed -i '$ a WU_DEFAULT_SERVER=nginx' /var/webuzo/webuzo.conf
+	cd /root
+	rm -rf nginx
+	echo "Done! Dont forget. run mynginx then nano, to set the domain."
+else echo "Skipped"
+fi
+
 
 #----------------------------------
 # CSF
