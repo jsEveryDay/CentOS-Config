@@ -44,7 +44,7 @@ if [ "$mynx" == "y" ]; then
 	wget http://nginx.org/download/nginx-1.10.2.tar.gz
 	tar -zxvf *.tar.gz
 	cd nginx-1.10.2
-	./configure --prefix=/usr/local/apps/nginx --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/logs/error.log --http-log-path=/usr/local/apps/nginx/logs/web.access.log --with-http_ssl_module
+	./configure --pid-path=/usr/local/nginx/var/run/nginx.pid --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/logs/error.log --http-log-path=/usr/local/apps/nginx/logs/web.access.log --with-http_ssl_module
 	make
 	make install
 	wget $MINE/mynginx.tar.gz
@@ -54,6 +54,8 @@ if [ "$mynx" == "y" ]; then
 	sed -i '$ a WU_DEFAULT_SERVER=nginx' /var/webuzo/webuzo.conf
 	cd /root
 	rm -rf nginx
+	chkconfig --add nginx
+	chkconfig nginx on
 	echo "Done! Dont forget. run mynginx then nano, to set the domain."
 else echo "Skipped"
 fi
