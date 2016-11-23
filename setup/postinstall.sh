@@ -5,6 +5,11 @@ MINE=https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup
 read -p 'User: ' myUser
 read -p 'Pass: ' myPass
 read -p 'Domain: ' myDomain
+read -p 'Install NGINX (y/n)?: ' mynx
+read -p 'InstallCSF (y/n)?: ' mycsf
+read -p 'Set SSH Port: ' sshport
+read -p 'Setup Mongo?: ' mong
+read -p 'Cleanup and Secure (y/n)?: ' cleanme
 
 sed -i '$ a alias mycron="env EDITOR=nano crontab -e"' $HOME/.bashrc
 sed -i '$ a alias tara="tar cvzf"' $HOME/.bashrc
@@ -32,11 +37,11 @@ chmod 0755 autoinstall.php
 wget -O /usr/local/webuzo/enduser/universal.php $MINE/universal.php
 
 
-#----------------------------------
+----------------------------------
 # Nginx
 #----------------------------------
 cd /root
-read -p 'Install NGINX (y/n)?: ' mynx
+#read -p 'Install NGINX (y/n)?: ' mynx
 if [ "$mynx" == "y" ]; then 
 	yum install pcre-devel zlib-devel openssl-devel -y
 	mkdir nginx
@@ -65,7 +70,7 @@ fi
 # CSF
 #----------------------------------
 cd /root
-read -p 'InstallCSF (y/n)?: ' mycsf
+#read -p 'InstallCSF (y/n)?: ' mycsf
 if [ "$mycsf" == "y" ]; then 
 	/etc/init.d/iptables stop
 	yum install perl-Crypt-SSLeay perl-Net-SSLeay -y
@@ -90,7 +95,7 @@ fi
 #----------------------------------
 
 cd /root
-read -p 'Set SSH Port: ' sshport
+#read -p 'Set SSH Port: ' sshport
 if [ -n "$sshport" ]; then 
 		sed -i "s/#Port 22/Port $sshport/" /etc/ssh/sshd_config
 	echo "Done!!"
@@ -102,11 +107,10 @@ fi
 #----------------------------------
 
 cd /root
-read -p 'Setup Mongo?: ' mong
+#read -p 'Setup Mongo?: ' mong
 if [ "$mong" == "y" ]; then 
-		cd /etc/yum.repos.d
-		wget https://repo.mongodb.org/yum/redhat/mongodb-org.repo
-		yum install -y mongodb-org
+		wget -O /etc/yum.repos.d/mongodb-org.repo $MINE/mongodb-org.repo
+		yum install -y mongodb-org mongodb-org-tools
 		sed -i "s/bindIp: 127.0.0.1/bindIp: 127.0.0.1,$ip/" /etc/mongod.conf
 	echo "Done!! Added Server IP too"
 else echo "Skipped"
@@ -116,7 +120,7 @@ fi
 # CleanUP
 #----------------------------------
 cd /root
-read -p 'Cleanup and Secure (y/n)?: ' cleanme
+#read -p 'Cleanup and Secure (y/n)?: ' cleanme
 if [ "$cleanme" == "y" ]; then 
 	rm -rf rar
 	rm -rf *.tar.gz
