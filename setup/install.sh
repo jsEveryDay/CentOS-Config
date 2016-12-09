@@ -54,8 +54,8 @@ rm -rf /usr/local/webuzo
 mkdir /usr/local/webuzo >> $LOG 2>&1
 
 # Get our installer DEFAULT 
-#wget -O /usr/local/webuzo/install.php $MINE/install.php >> $LOG 2>&1
-wget -O /usr/local/webuzo/install.php $FILEREPO/install.inc >> $LOG 2>&1
+wget -O /usr/local/webuzo/install.php $MINE/install.php >> $LOG 2>&1
+#wget -O /usr/local/webuzo/install.php $FILEREPO/install.inc >> $LOG 2>&1
 
 echo "4) Downloading System Apps"
 # Run our installer
