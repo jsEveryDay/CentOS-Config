@@ -2,7 +2,6 @@
 
 The bash scripts in the setup automatically install and configure the following:
 
-  - Setup Webuzo with plain settings (no email, no updates, no spam)
   - Install CSF from original source and apply Webuzo rules.
   - Change default SSH port
   - Cleanup Webuzo user/setup/leftover files that identify the user
@@ -45,8 +44,7 @@ exit;
 **Config files**
 /other/my.cnf > Great MySQL Config for heavy usage
 
-**vlmcsd**
-KMS Emulator binary using GCC for Rhel 6. To run/stop:
+
 ```sh
 ./vlmcsd -l /home/username/kms/kms.log -L SERVERIP -d -v
 killall -SIGHUP vlmcsd
