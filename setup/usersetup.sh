@@ -47,7 +47,7 @@ if [ "$setupc9" == "y" ]; then
 		mv CodeIntel-0.9.3/SilverCity CodeIntel-0.9.3/silvercity
 		tar czf CodeIntel-0.9.3.tar.gz CodeIntel-0.9.3
 		pip install -U --no-index --find-links=/tmp/codeintel codeintel
-		sed -i '$ a alias myc9="cd $HOME/c9sdk && node server.js -p 8080 -l $ip -a $myUser:$myPass -w $HOME"' $HOME/.bashrc
+		sed -i '$ a alias myc9="cd '"$HOME""/c9sdk && node server.js -p 8080 -l $ip -a $myUser:$myPass -w ""$HOME"'"' $HOME/.bashrc
 	echo "Done!!"
 	echo "Dont forget to edit: nano .bashrc"
 	echo "myc9"
