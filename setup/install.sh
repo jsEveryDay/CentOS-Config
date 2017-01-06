@@ -6,7 +6,7 @@ rpm -Uvh http://repoforge.eecs.wsu.edu/redhat/el6/en/x86_64/rpmforge
 rpm -Uvh --nosignature ftp://195.220.108.108/linux/sourceforge/i/it/itmos/rely%20on%20cnz/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
 rpm -Uvh --nosignature http://www.packetfence.org/downloads/SOGo/RHEL6/nightly/x86_64/RPMS/libwbxml-0.11.2-4.centos6.x86_64.rpm
 yum update -y && yum upgrade -y
-yum install wget zip unzip git glib* tmux gdb glibc.i686 glibc-devel.i686 glibc-i686 libstdc++.i686 openssl-devel nano -y
+yum install wget zip unzip git glib* tmux gdb glibc.i686 glibc-devel.i686 glibc-i686 libstdc++.i686 nano -y
 wget http://www.rarlab.com/rar/rarlinux-x64-5.4.b2.tar.gz
 tar -zxvf rarlinux-x64-5.4.b2.tar.gz
 cd rar
