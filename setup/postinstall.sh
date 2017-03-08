@@ -43,6 +43,7 @@ wget -O /usr/local/webuzo/enduser/universal.php $MINE/universal.php
 cd /root
 #read -p 'Install NGINX (y/n)?: ' mynx
 if [ "$mynx" == "y" ]; then 
+	yum remove httpd httpd-devel httpd-manual httpd-tools -y
 	yum install pcre-devel zlib-devel openssl-devel -y
 	mkdir nginx
 	cd nginx
