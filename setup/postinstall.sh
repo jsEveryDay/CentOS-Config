@@ -4,6 +4,7 @@ MINE=https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup
 
 read -p 'User: ' myUser
 read -p 'Pass: ' myPass
+read -p 'Domain: ' myDomain
 read -p 'Install NGINX (y/n)?: ' mynx
 read -p 'InstallCSF (y/n)?: ' mycsf
 read -p 'Set SSH Port: ' sshport
@@ -28,7 +29,7 @@ pip install virtualenv
 yum install python-devel.x86_64 -y
 wget -O /root/autoinstall.php $MINE/WebuzoSetup.php
 chmod 0755 autoinstall.php
-/usr/local/emps/bin/php autoinstall.php $ip $myUser $myPass
+/usr/local/emps/bin/php autoinstall.php $ip $myUser $myPass  $myDomain
 
 #----------------------------------
 # Change Settings, stop email spam from webuzo, stop autoupdate etc
