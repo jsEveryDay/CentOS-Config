@@ -47,9 +47,9 @@ if [ "$mynx" == "y" ]; then
 	yum install pcre-devel zlib-devel openssl-devel -y
 	mkdir nginx
 	cd nginx
-	wget http://nginx.org/download/nginx-1.10.3.tar.gz
+	wget http://nginx.org/download/nginx-1.12.1.tar.gz
 	tar -zxvf *.tar.gz
-	cd nginx-1.10.3
+	cd nginx-1.12.1
 	./configure --pid-path=/usr/local/nginx/var/run/nginx.pid --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/logs/error.log --http-log-path=/usr/local/apps/nginx/logs/web.access.log --with-http_ssl_module
 	make
 	make install
