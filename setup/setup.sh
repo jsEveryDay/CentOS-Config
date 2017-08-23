@@ -17,7 +17,7 @@ yum install python-devel.x86_64 -y
 wget -O /root/autoinstall.php $MINE/WebuzoSetup.inc
 chmod 0755 autoinstall.php
 /usr/local/emps/bin/php autoinstall.php $myIp $myUser $myPass $myDomain
-wget -O /usr/local/webuzo/enduser/universal.php https://raw.githubusercontent.com/jsEveryDay/webuzo/master/root/universal.inc
+wget -O /usr/local/webuzo/enduser/universal.php https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/universal.php
 
 #----------------------------------
 # CSF
@@ -33,7 +33,7 @@ if [ "$mycsf" == "y" ]; then
 	tar -xzf csf.tgz
 	cd csf
 	./install.generic.sh
-	wget -O /etc/csf/csf.conf https://raw.githubusercontent.com/jsEveryDay/webuzo/master/root/csf.conf
+	wget -O /etc/csf/csf.conf https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/csf.conf
 	csf -r
 	echo "Done!!"
 else echo "Skipped"
