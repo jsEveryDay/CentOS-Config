@@ -34,7 +34,7 @@ chmod 0755 autoinstall.php
 #----------------------------------
 # Change Settings, stop email spam from webuzo, stop autoupdate etc
 #----------------------------------
-wget -O /usr/local/webuzo/enduser/universal.php $MINE/universal.php
+wget -O /usr/local/webuzo/enduser/universal.php https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/universal.php
 
 
 ----------------------------------
@@ -81,7 +81,7 @@ if [ "$mycsf" == "y" ]; then
 	tar -xzf csf.tgz
 	cd csf
 	./install.generic.sh
-	wget -O /etc/csf/csf.conf $MINE/csf.conf
+	wget -O /etc/csf/csf.conf https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/csf.conf
 	read -p 'Ip to Whitelist: ' localip
 	csf -a $localip
 	csf -r
