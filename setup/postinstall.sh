@@ -53,7 +53,7 @@ if [ "$mynx" == "y" ]; then
 	./configure --pid-path=/usr/local/nginx/var/run/nginx.pid --sbin-path=/usr/local/apps/nginx/sbin/nginx --conf-path=/usr/local/apps/nginx/etc/nginx.conf --error-log-path=/usr/local/apps/nginx/logs/error.log --http-log-path=/usr/local/apps/nginx/logs/web.access.log --with-http_ssl_module
 	make
 	make install
-	wget $MINE/mynginx.tar.gz
+	wget https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/mynginx.tar.gz
 	tar -zxvpf mynginx.tar.gz -C /usr/local/apps
 	ln -s /usr/local/apps/nginx/sbin/nginx /usr/sbin/nginx
 	ln -s /usr/local/apps/nginx/bin/nginxctl /etc/rc.d/init.d/nginx
