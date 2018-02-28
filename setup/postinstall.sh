@@ -11,23 +11,12 @@ read -p 'Set SSH Port: ' sshport
 read -p 'Setup Mongo?: ' mong
 read -p 'Cleanup and Secure (y/n)?: ' cleanme
 
-sed -i '$ a alias mycron="env EDITOR=nano crontab -e"' $HOME/.bashrc
-sed -i '$ a alias tara="tar cvzf"' $HOME/.bashrc
-sed -i '$ a alias tarx="tar -zxvf"' $HOME/.bashrc
-sed -i '$ a alias mynginx="cd /usr/local/apps/nginx/etc/conf.d"' $HOME/.bashrc
-sed -i '$ a alias myip="wget -qO- http://ipecho.net/plain ; echo"' $HOME/.bashrc
-
 ip=$(cat ip.php) 
 
 #----------------------------------
 # Setup VirtualEnv and PIP for C9
 #----------------------------------
-
-yum -y install python-pip
-pip install --upgrade pip
-pip install virtualenv
-yum install python-devel.x86_64 -y
-wget -O /root/autoinstall.php $MINE/WebuzoSetup.php
+wget -O /root/autoinstall.php https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/WebuzoSetup.php
 chmod 0755 autoinstall.php
 /usr/local/emps/bin/php autoinstall.php $ip $myUser $myPass  $myDomain
 
