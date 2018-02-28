@@ -1,14 +1,13 @@
 #!/bin/bash
 
 # Get PreReq!
-rpm -Uvh http://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-rpm -Uvh http://repoforge.eecs.wsu.edu/redhat/el6/en/x86_64/rpmforge
-rpm -Uvh --nosignature ftp://195.220.108.108/linux/sourceforge/i/it/itmos/rely%20on%20cnz/rpmforge-release-0.5.3-1.el6.rf.x86_64.rpm
-rpm -Uvh --nosignature http://www.packetfence.org/downloads/SOGo/RHEL6/nightly/x86_64/RPMS/libwbxml-0.11.2-4.centos6.x86_64.rpm
+rpm -Uvh http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmforge/RPMS/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+rpm -Uvh --nosignature http://packages.inverse.ca/SOGo/nightly/3/rhel/7/x86_64/RPMS/libwbxml-0.11.2-4.el7.centos.x86_64.rpm
 yum update -y && yum upgrade -y
-yum install wget zip unzip git glib* tmux gdb glibc.i686 glibc-devel.i686 glibc-i686 libstdc++.i686 nano -y
-wget http://www.rarlab.com/rar/rarlinux-x64-5.4.b2.tar.gz
-tar -zxvf rarlinux-x64-5.4.b2.tar.gz
+yum install htop perl-libwww-perl net-tools perl-LWP-Protocol-https gcc wget zip nano unzip git glib* tmux gdb pcre-devel zlib-devel openssl-devel curl curl-devel nano ntsysv p7zip.x86_64 -y
+wget http://www.rarlab.com/rar/rarlinux-x64-5.5.0.tar.gz
+tar -zxvf rarlinux-x64-5.5.0.tar.gz
 cd rar
 make
 make install
