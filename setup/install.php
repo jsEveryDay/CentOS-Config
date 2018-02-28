@@ -108,7 +108,7 @@ else {
 
 
 	if (empty($chunks)) {
-        $chunks = array('mysql', 'php56', 'perl', 'python2', 'bind');
+        $chunks = array('mysql', 'php71', 'perl', 'python2', 'bind');
 	}
 
 	error_reporting( 4 );
