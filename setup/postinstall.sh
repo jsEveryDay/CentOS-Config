@@ -23,7 +23,7 @@ chmod 0755 autoinstall.php
 #----------------------------------
 # Change Settings, stop email spam from webuzo, stop autoupdate etc
 #----------------------------------
-wget -O /usr/local/webuzo/enduser/universal.php https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/universal.php
+# wget -O /usr/local/webuzo/enduser/universal.php https://raw.githubusercontent.com/jsEveryDay/CentOS-Config/master/setup/universal.php
 
 
 ----------------------------------
