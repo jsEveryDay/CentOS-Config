@@ -44,10 +44,6 @@ exit;
 **Config files**
 /other/my.cnf > Great MySQL Config for heavy usage
 
-
-```sh
-./vlmcsd -l /home/username/kms/kms.log -L SERVERIP -d -v
-killall -SIGHUP vlmcsd
 ```
 
 License
