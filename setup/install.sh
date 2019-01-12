@@ -6,8 +6,8 @@ rpm -Uvh http://repository.it4i.cz/mirrors/repoforge/redhat/el7/en/x86_64/rpmfor
 rpm -Uvh --nosignature http://packages.inverse.ca/SOGo/nightly/3/rhel/7/x86_64/RPMS/libwbxml-0.11.2-4.el7.centos.x86_64.rpm
 yum update -y && yum upgrade -y
 yum install htop perl-libwww-perl net-tools perl-LWP-Protocol-https gcc wget zip nano unzip git glib* tmux gdb pcre-devel zlib-devel openssl-devel curl curl-devel nano ntsysv p7zip.x86_64 -y
-wget http://www.rarlab.com/rar/rarlinux-x64-5.5.0.tar.gz
-tar -zxvf rarlinux-x64-5.5.0.tar.gz
+wget http://www.rarlab.com/rar/rarlinux-x64-5.6.1.tar.gz
+tar -zxvf rarlinux-x64-5.6.1.tar.gz
 cd rar
 make
 make install
